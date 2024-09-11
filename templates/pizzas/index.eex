@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div id="title_screen">
+        <div id="empty"></div>
+        <img id="logo_img" src="/img/tonys-pizza-logo.svg" alt="Pizzaman Title">
+        <a href="/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
+    </div>
+
+    <div id="pizzas">
+
+        <div class="pizza_double">
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/margherita.svg" alt="margherita">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/capricciosa.svg" alt="capricciosa">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza_double">
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/marinara.svg" alt="marinara">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/quattro-formaggi.svg" alt="quattro-formaggi">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza_double">
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/prosciutto-e-funghi.svg" alt="prosciutto-e-funghi">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/ortolana.svg" alt="ortolana">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza_double">
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/quattro-stagioni.svg" alt="quattro-stagioni">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="pizza_holder">
+                <img class="pizza_img" src="/img/diavola.svg" alt="diavola">
+                <div class="pizza_info">
+                    <div class="ingredients">
+                        <p>Ingredients to be added</p>
+                    </div>
+                    <div class="pizza_actions">
+                        <a href="/pizzas/customize">Anpassa</a>
+                        <a href="/pizzas/buy">Köp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
