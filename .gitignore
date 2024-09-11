@@ -26,3 +26,5 @@ erl_crash.dump
 pluggy-*.tar
 
 .DS_Store
+priv/.DS_Store
+priv/static/.DS_Store

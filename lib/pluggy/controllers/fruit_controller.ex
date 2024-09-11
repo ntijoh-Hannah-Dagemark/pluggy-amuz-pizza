@@ -16,7 +16,7 @@ defmodule Pluggy.FruitController do
         _ -> User.get(session_user)
       end
 
-    send_resp(conn, 200, render("fruits/index", fruits: Fruit.all(), user: current_user))
+    send_resp(conn, 200, render("pizzas/index", fruits: Fruit.all(), user: current_user))
   end
 
   #render använder eex
