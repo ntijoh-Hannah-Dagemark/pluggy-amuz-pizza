@@ -30,7 +30,7 @@ defmodule Pluggy.Pizza do
     name = params["name"]
     toppings = params["toppings"]
 
-    Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2, $3)", [name, toppings])
+    Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2)", [name, toppings])
   end
 
   def delete(id) do
