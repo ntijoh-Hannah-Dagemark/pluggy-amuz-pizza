@@ -18,7 +18,6 @@ defmodule Pluggy.Pizza do
     name = params["name"]
     toppings = params["toppings"]
     id = String.to_integer(id)
-
     Postgrex.query!(
       DB,
       "UPDATE pizza SET name = $1, toppings = $2 WHERE id = $3",
