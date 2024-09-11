@@ -21,7 +21,7 @@ defmodule Pluggy.Pizza do
 
     Postgrex.query!(
       DB,
-      "UPDATE pizza SET name = $1, size = $2, toppings = $3 WHERE id = $4",
+      "UPDATE pizza SET name = $1, toppings = $2 WHERE id = $3",
       [name, toppings, id]
     )
   end
