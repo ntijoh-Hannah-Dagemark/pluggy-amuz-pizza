@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -9,7 +8,7 @@
     <div id="title_screen">
         <div id="empty"></div>
         <img id="logo_img" src="/img/tonys-pizza-logo.svg" alt="Pizzaman Title">
-        <a href="/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
+        <a href="/pizzas/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
     </div>
 
     <div id="pizzas">
@@ -19,11 +18,11 @@
                 <img class="pizza_img" src="/img/margherita.svg" alt="margherita">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Basilika </p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/margherita">Anpassa</a>
+                        <a href="/pizzas/buy/margherita">Köp</a>
                     </div>
                 </div>
             </div>
@@ -32,11 +31,11 @@
                 <img class="pizza_img" src="/img/capricciosa.svg" alt="capricciosa">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp <br>Kronärtskocka </p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/capricciosa">Anpassa</a>
+                        <a href="/pizzas/buy/capricciosa">Köp</a>
                     </div>
                 </div>
             </div>
@@ -47,11 +46,11 @@
                 <img class="pizza_img" src="/img/marinara.svg" alt="marinara">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/marinara">Anpassa</a>
+                        <a href="/pizzas/buy/marinara">Köp</a>
                     </div>
                 </div>
             </div>
@@ -60,11 +59,11 @@
                 <img class="pizza_img" src="/img/quattro-formaggi.svg" alt="quattro-formaggi">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Parmesan <br>Pecorino <br>Gorgonzola</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/quattro-formaggi">Anpassa</a>
+                        <a href="/pizzas/buy/quattro-formaggi">Köp</a>
                     </div>
                 </div>
             </div>
@@ -75,11 +74,11 @@
                 <img class="pizza_img" src="/img/prosciutto-e-funghi.svg" alt="prosciutto-e-funghi">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/prosciutto-e-funghi">Anpassa</a>
+                        <a href="/pizzas/buy/prosciutto-e-funghi">Köp</a>
                     </div>
                 </div>
             </div>
@@ -88,11 +87,11 @@
                 <img class="pizza_img" src="/img/ortolana.svg" alt="ortolana">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Paprika <br>Aubergine <br>Zucchini</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/ortolana">Anpassa</a>
+                        <a href="/pizzas/buy/ortolana">Köp</a>
                     </div>
                 </div>
             </div>
@@ -103,11 +102,11 @@
                 <img class="pizza_img" src="/img/quattro-stagioni.svg" alt="quattro-stagioni">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp <br>Kronärtskocka <br>Oliver</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/quattro-stagioni">Anpassa</a>
+                        <a href="/pizzas/buy/quattro-stagioni">Köp</a>
                     </div>
                 </div>
             </div>
@@ -116,11 +115,11 @@
                 <img class="pizza_img" src="/img/diavola.svg" alt="diavola">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Ingredients to be added</p>
+                        <p>Tomatsås <br>Mozzarella <br>Salami <br>Paprika <br>Chili</p>
                     </div>
                     <div class="pizza_actions">
-                        <a href="/pizzas/customize">Anpassa</a>
-                        <a href="/pizzas/buy">Köp</a>
+                        <a href="/pizzas/customize/diavola">Anpassa</a>
+                        <a href="/pizzas/buy/diavola">Köp</a>
                     </div>
                 </div>
             </div>
