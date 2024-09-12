@@ -14,16 +14,15 @@
 
     <div class="parent">
         <div id="cart">
-         <!-- Cart content here -->
+            <!-- Cart content here -->
         </div>
     </div>
 
     <div class="parent">
         <div id="cart_checkout">
-            <!-- Checkout content here -->
+           <a href="/fruits"> Checkout </a>
         </div>
     </div>
-
 
 
 </body>

@@ -99,6 +99,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
 #owner_to_do {
     background-color: darkblue;
@@ -109,12 +110,12 @@ body {
 
 #cart {
     background-color: darkblue;
-    height: 400px;           /* Adjust as needed */
-    width: 200px;            /* Adjust as needed */
+    height: 400px;
+    width: 400px;
 }
 
-#cart_checkout{
+#cart_checkout {
     background-color: red;
-    height: 500;
-    width: 500;
+    height: 100px; /* Added 'px' unit */
+    width: 200px; /* Added 'px' unit */
 }
