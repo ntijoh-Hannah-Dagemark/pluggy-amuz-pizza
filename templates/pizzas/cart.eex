@@ -13,20 +13,16 @@
 
 
     <div class="parent">
-        <div id="owner_to_do">
-
+        <div id="cart">
+         <!-- Cart content here -->
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
+    <div class="parent">
+        <div id="cart_checkout">
+            <!-- Checkout content here -->
+        </div>
+    </div>
 
 
 

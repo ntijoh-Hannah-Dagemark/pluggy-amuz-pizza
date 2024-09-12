@@ -18,6 +18,10 @@ defmodule Pluggy.PizzaController do
     send_resp(conn, 200, render("pizzas/owner", []))
   end
 
+  def cart(conn) do
+    send_resp(conn, 200, render("pizzas/cart", []))
+  end
+
   # Render the 'new' template
   # <-- Change 5: Template name ("fruits/new" -> "pizzas/new")
   def new(conn), do: send_resp(conn, 200, render("pizza/new", []))

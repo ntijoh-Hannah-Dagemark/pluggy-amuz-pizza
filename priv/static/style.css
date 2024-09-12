@@ -95,15 +95,26 @@ body {
     background-color: darkorange;
 }
 
-.owner_parent {
+.parent {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-}
+    justify-content: center;
+    align-items: center;
 
 #owner_to_do {
     background-color: darkblue;
     height: 500px;
     width: 400px;
     margin-top: 35px;
+}
+
+#cart {
+    background-color: darkblue;
+    height: 400px;           /* Adjust as needed */
+    width: 200px;            /* Adjust as needed */
+}
+
+#cart_checkout{
+    background-color: red;
+    height: 500;
+    width: 500;
 }
