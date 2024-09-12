@@ -14,6 +14,10 @@ defmodule Pluggy.PizzaController do
     # <-- Removed all user-related functionality
   end
 
+  def owner(conn) do
+    send_resp(conn, 200, render("pizzas/owner", []))
+  end
+
   # Render the 'new' template
   # <-- Change 5: Template name ("fruits/new" -> "pizzas/new")
   def new(conn), do: send_resp(conn, 200, render("pizza/new", []))
@@ -45,15 +49,12 @@ defmodule Pluggy.PizzaController do
     Pizza.buy(id)
     send_resp(conn, 200, render("/pizzas", pizza: Pizza.get(id)))
   end
+
   def customize(conn, id) do
-
-
   end
 
   def customize(conn, id, body_params) do
-
   end
-
 
   def update(conn, id, params) do
     # <-- Change 10: Update to Pizza.update

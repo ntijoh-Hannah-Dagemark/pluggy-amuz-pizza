@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="title_screen">
+        <div id="empty"></div>
+        <img id="logo_img" src="/img/tonys-pizza-logo.svg" alt="Pizzaman Title">
+        <a href="/pizzas/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
+    </div>
+
+
+    <div class="owner_parent">
+        <div id="owner_to_do">
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
