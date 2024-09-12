@@ -1,0 +1,26 @@
+<body>
+    <h1>Beställ variant av <%= @pizza.name %></h1>
+
+    <form action="/pizzas/customize/<%=@pizza.name%>" method="post">
+        <input type="hidden" name="_csrf_token" value="<%= @csrf_token %>">
+        <input type="hidden" name="pizza_name" value="<%= @pizza.name %>">
+
+        <h2>Toppings</h2>
+        <ul>
+            <%= for topping <- @all_toppings do %>
+                <li>
+                    <label>
+                        <input type="checkbox" 
+                               name="toppings[]" 
+                               value="<%= topping %>"
+                               <%= if topping in @pizza.toppings, do: "checked" %>>
+                        <%= topping %>
+                    </label>
+                </li>
+            <% end %>
+        </ul>
+
+        <button type="submit">Update Pizza</button>
+    </form>
+</body>
+</html>

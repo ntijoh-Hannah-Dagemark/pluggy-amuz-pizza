@@ -36,33 +36,49 @@ body {
 }
 
 .pizza_holder {
+	background-color: pink;
 	display: flex;
 	flex-direction: row;
-	background-color: cadetblue;
 	align-items: center; /* Center the content vertically */
 }
 
 .pizza_img {
-	width: 15vw;
-	height: 15vh;
-	margin-right: 10px; /* Space between the image and ingredients */
+	width: 20vw;
+	height: 20vh;
+	margin-right: 5px; /* Space between the image and ingredients */
 }
 
 .pizza_info {
+	background-color: green;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-between; /* Ensure space between ingredients and actions */
+	align-items: flex-start; /* Align children to the start of the container */
+	width: 100%; /* Ensure it takes the full width available */
+	height: 100%;
 }
 
 .ingredients {
-	background-color: brown;
+	background-color: yellow;
+	display: flex;
+	flex-direction: column; /* Stack content vertically */
+	justify-content: flex-start; /* Align items to the top */
+	width: 100%; /* Ensure it takes the full width of the parent */
+	height: 100%;
+}
+
+.ingredients p {
+	margin: 0; /* Remove default margins from the paragraph */
 }
 
 .pizza_actions {
+	background-color: blue;
 	display: flex;
-	flex-direction: row; /* Stack the buttons vertically */
+	flex-direction: row; /* Stack the buttons horizontally */
 	justify-content: space-between;
+	align-items: flex-start; /* Align buttons to the top */
 	padding: 5px;
+	width: 100%; /* Ensure it takes the full width of the parent */
 }
 
 .pizza_actions a {
@@ -71,7 +87,7 @@ body {
 	padding: 5px 10px;
 	text-align: center;
 	text-decoration: none;
-	margin-bottom: 5px; /* Space between the buttons */
+	margin-right: 5px; /* Space between the buttons */
 	border-radius: 5px;
 }
 
