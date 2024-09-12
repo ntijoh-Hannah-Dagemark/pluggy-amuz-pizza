@@ -30,6 +30,12 @@ defmodule Pluggy.PizzaController do   # <-- Change 1: Update module name
     redirect(conn, "/pizza")  # <-- Change 9: URL path ("/fruits" -> "/pizzas")
   end
 
+
+  def buy(conn, id) do
+    Pizza.get(id)
+  end
+
+
   def update(conn, id, params) do
     Pizza.update(id, params)  # <-- Change 10: Update to Pizza.update
     redirect(conn, "/pizza")  # <-- Change 11: URL path ("/fruits" -> "/pizzas")

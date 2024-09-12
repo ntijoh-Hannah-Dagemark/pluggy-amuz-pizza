@@ -24,6 +24,17 @@ defmodule Mix.Tasks.Seed do
         toppings VARCHAR(255) NOT NULL
       )
     """, [], pool: DBConnection.ConnectionPool)
+
+    Postgrex.query!(DB, """
+      CREATE TABLE pizza_prog (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        toppings VARCHAR(255) NOT NULL,
+        modifications VARCHAR(255) NOT NULL,
+        state VARCHAR(255) NOT NULL
+
+      )
+    """, [], pool: DBConnection.ConnectionPool)
   end
 
   defp seed_data() do
@@ -32,6 +43,9 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO pizza(name, toppings) VALUES($1, $2)", ["Margherita", "Tomatsås, Mozzarella, Basilika"], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "INSERT INTO pizza(name, toppings) VALUES($1, $2)", ["Marinara", "Tomatsås"], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "INSERT INTO pizza(name, toppings) VALUES($1, $2)", ["Diavola", "Tomatsås, Mozzarella, Salami, Paprika, Chili"], pool: DBConnection.ConnectionPool)
+
+
+
   end
 
 end
