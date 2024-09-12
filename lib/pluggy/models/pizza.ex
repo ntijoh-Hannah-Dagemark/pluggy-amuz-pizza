@@ -23,31 +23,25 @@ defmodule Pluggy.Pizza do
     )
   end
 
-  def update(id, params) do
-    name = params["name"]
-    toppings = params["toppings"]
-    id = String.to_integer(id)
+  def buy(id, modifications) do
+    current_pizza = get(id)
 
     Postgrex.query!(
       DB,
-      "UPDATE pizza SET name = $1, toppings = $2 WHERE id = $3",
-      [name, toppings, id]
+      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES (?, ?, ?, ?)",
+      [current_pizza["name"], current_pizza["toppings"], modifications, "cart"]
     )
   end
 
-  def create(params) do
-    name = params["name"]
-    toppings = params["toppings"]
+  # def create(params) do
+  #   name = params["name"]
+  #   toppings = params["toppings"]
+  #   Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2)", [name, toppings])
+  # end
 
-    Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2)", [name, toppings])
-  end
-
-  def delete(id) do
-    Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
-  end
-
-  def buy do
-  end
+  # def delete(id) do
+  #   Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
+  # end
 
   def to_struct([[id, name, toppings]]) do
     %Pizza{id: id, name: name, toppings: toppings}
