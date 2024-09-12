@@ -9,15 +9,25 @@ defmodule Pluggy.Pizza do
   end
 
   def get(id) do
-    Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]
-    ).rows
+    Postgrex.query!(DB, "SELECT * FROM pizza WHERE name = $1 LIMIT 1", [id]).rows
     |> to_struct
+  end
+
+  def buy(id) do
+    current_pizza = get(id)
+
+    Postgrex.query!(
+      DB,
+      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES (?, ?, ?, ?)",
+      [current_pizza["name"], current_pizza["toppings"], "none", "cart"]
+    )
   end
 
   def update(id, params) do
     name = params["name"]
     toppings = params["toppings"]
     id = String.to_integer(id)
+
     Postgrex.query!(
       DB,
       "UPDATE pizza SET name = $1, toppings = $2 WHERE id = $3",
@@ -34,6 +44,9 @@ defmodule Pluggy.Pizza do
 
   def delete(id) do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
+  end
+
+  def buy do
   end
 
   def to_struct([[id, name, toppings]]) do
