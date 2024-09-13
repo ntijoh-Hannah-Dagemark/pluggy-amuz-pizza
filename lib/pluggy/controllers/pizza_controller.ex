@@ -8,7 +8,7 @@ defmodule Pluggy.PizzaController do
   import Plug.Conn, only: [send_resp: 3]
 
   def index(conn) do
-    send_resp(conn, 200, render("pizza/index", pizzas: Pizza.all()))
+    send_resp(conn, 200, render("pizzas/index", pizzas: Pizza.all()))
     # <-- Change 3: Update template ("fruits/index" -> "pizzas/index")
     # <-- Change 4: Update keyword argument (fruits: -> pizzas:)
     # <-- Removed all user-related functionality
