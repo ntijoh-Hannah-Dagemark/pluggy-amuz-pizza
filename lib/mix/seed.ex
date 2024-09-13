@@ -54,29 +54,22 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-<<<<<<< HEAD
       ["Margherita", "Tomatsås, Mozzarella, Basilika"],
-=======
-      ["Margherita", "tomatsås, mozzarella, basilika"],
->>>>>>> upstream/master
+
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-<<<<<<< HEAD
       ["Marinara", "Tomatsås"],
-=======
-      ["Marinara", "tomatsås"],
->>>>>>> upstream/master
+
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-<<<<<<< HEAD
       ["Prosciutto e funghi", "Tomatsås, Mozzarella, Skinka, Svamp"],
       pool: DBConnection.ConnectionPool
     )
@@ -113,9 +106,6 @@ defmodule Mix.Tasks.Seed do
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Diavola", "Tomatsås, Mozzarella, Salami, Paprika, Chili"],
-=======
-      ["Diavola", "tomatsås, mozzarella, salami, paprika, chili"],
->>>>>>> upstream/master
       pool: DBConnection.ConnectionPool
     )
   end
