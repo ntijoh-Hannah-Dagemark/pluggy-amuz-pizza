@@ -51,7 +51,7 @@ defmodule Pluggy.PizzaController do
   @spec buy(any(), binary()) :: %Pluggy.Pizza{id: any(), name: any(), toppings: any()}
   def buy(conn, id) do
     Pizza.buy(id)
-    send_resp(conn, 200, render("/pizzas", pizza: Pizza.get(id)))
+    send_resp(conn, 200, render("pizzas/index", pizza: Pizza.get(id)))
   end
 
   def customize(conn, id) do

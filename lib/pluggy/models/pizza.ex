@@ -9,9 +9,9 @@ defmodule Pluggy.Pizza do
   end
 
   def get(id) do
-    Postgrex.query!(DB, "SELECT * FROM pizza WHERE name = $1 LIMIT 1", [id]).rows
-    |> to_string
-    |> IO.puts()
+    i = id |> String.capitalize()
+
+    Postgrex.query!(DB, "SELECT * FROM pizza WHERE name = $1 LIMIT 1", [i]).rows
     |> to_struct
   end
 
@@ -20,8 +20,13 @@ defmodule Pluggy.Pizza do
 
     Postgrex.query!(
       DB,
-      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES (?, ?, ?, ?)",
-      [current_pizza["name"], current_pizza["toppings"], "none", "cart"]
+      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES ($1, $2, $3, $4)",
+      [
+        current_pizza.name,
+        current_pizza.toppings,
+        "none",
+        "cart"
+      ]
     )
   end
 
@@ -31,7 +36,12 @@ defmodule Pluggy.Pizza do
     Postgrex.query!(
       DB,
       "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES (?, ?, ?, ?)",
-      [current_pizza["name"], current_pizza["toppings"], modifications, "cart"]
+      [
+        get_in(current_pizza, Access.key(:name)),
+        get_in(current_pizza, Access.key(:toppings)),
+        modifications,
+        "cart"
+      ]
     )
   end
 

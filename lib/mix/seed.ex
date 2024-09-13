@@ -53,21 +53,21 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["Margherita", "Tomatsås, Mozzarella, Basilika"],
+      ["margherita", "tomatsås, mozzarella, basilika"],
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["Marinara", "Tomatsås"],
+      ["marinara", "tomatsås"],
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["Diavola", "Tomatsås, Mozzarella, Salami, Paprika, Chili"],
+      ["diavola", "tomatsås, mozzarella, salami, paprika, chili"],
       pool: DBConnection.ConnectionPool
     )
   end
