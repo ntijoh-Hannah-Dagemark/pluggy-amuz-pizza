@@ -13,8 +13,15 @@
 
 
     <div class="parent">
+        <h1>Cart items</h1>
         <div id="cart">
-            <!-- Cart content here -->
+            <%= for pizza <- cart do %>
+                <div class="pizza-item">
+                    <h2><%= pizza.name %></h2>
+                    <p><strong>Toppings:</strong> <%= pizza.toppings %></p>
+                    <p><strong>Modifications:</strong> <%= pizza.modifications %></p>
+                </div>
+            <% end %>
         </div>
     </div>
 
