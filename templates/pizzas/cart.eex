@@ -19,9 +19,7 @@
     </div>
 
     <div class="parent">
-        <div id="cart_checkout">
-           <a href="/fruits"> Checkout </a>
-        </div>
+        <a href="/fruits", id="cart_checkout"> Checkout </a>
     </div>
 
 
