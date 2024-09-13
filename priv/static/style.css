@@ -9,18 +9,18 @@ body {
 }
 
 #logo_img {
-	width: 50vw;
+	width: 45vw;
 	height: 20vh;
 	justify-self: center;
 	align-self: center;
 }
 
 #basket_img {
-	width: 12vw;
-	height: 12vh;
+	width: 10vw;
+	height: 10vh;
 	justify-self: start;
 	margin-top: 10%;
-	margin-left: -20%;
+	margin-left: -10%;
 }
 
 #pizzas {
@@ -32,38 +32,38 @@ body {
 .pizza_double {
 	display: flex;
 	flex-direction: row;
-	padding: 15px;
+	padding: 5px;
 }
 
 .pizza_holder {
-	background-color: pink;
+	/* background-color: pink; */
 	display: flex;
 	flex-direction: row;
 	align-items: center; /* Center the content vertically */
 }
 
 .pizza_img {
-	width: 20vw;
-	height: 20vh;
-	margin-right: 5px; /* Space between the image and ingredients */
+	width: 12vw;
+	height: 12vh;
+	margin-right: 0px; /* Space between the image and ingredients */
 }
 
 .pizza_info {
-	background-color: green;
+	/* background-color: green; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between; /* Ensure space between ingredients and actions */
 	align-items: flex-start; /* Align children to the start of the container */
-	width: 100%; /* Ensure it takes the full width available */
+	/*width: 100%;  Ensure it takes the full width available */
 	height: 100%;
 }
 
 .ingredients {
-	background-color: yellow;
+	/* background-color: yellow; */
 	display: flex;
 	flex-direction: column; /* Stack content vertically */
 	justify-content: flex-start; /* Align items to the top */
-	width: 100%; /* Ensure it takes the full width of the parent */
+	/*width: 100%;  Ensure it takes the full width of the parent */
 	height: 100%;
 }
 
@@ -72,13 +72,13 @@ body {
 }
 
 .pizza_actions {
-	background-color: blue;
+	/* background-color: blue; */
 	display: flex;
 	flex-direction: row; /* Stack the buttons horizontally */
 	justify-content: space-between;
 	align-items: flex-start; /* Align buttons to the top */
 	padding: 5px;
-	width: 100%; /* Ensure it takes the full width of the parent */
+	/*width: 100%;  Ensure it takes the full width of the parent */
 }
 
 .pizza_actions a {
@@ -93,4 +93,25 @@ body {
 
 .pizza_actions a:hover {
 	background-color: darkorange;
+}
+
+.customize-btn {
+    background-color: #ffcc00; /* Yellow */
+    color: #000000; /* Black text */
+}
+
+/* Purchase button (Köp) */
+.purchase-btn {
+    background-color: #00cc99; /* Teal */
+    color: #ffffff; /* White text */
+}
+
+/* Hover effect for Customize button */
+.customize-btn:hover {
+    background-color: #ff9900; /* Darker yellow */
+}
+
+/* Hover effect for Purchase button */
+.purchase-btn:hover {
+    background-color: #009966; /* Darker teal */
 }

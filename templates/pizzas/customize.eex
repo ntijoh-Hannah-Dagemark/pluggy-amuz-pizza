@@ -24,3 +24,14 @@
     </form>
 </body>
 </html>
+
+
+<div>
+    <h1>Hello!</h1>
+    <p>This is some text</p>
+    <img src="/img/something" alt="oops, image failed to load">
+    <div>
+        <h2>Smaller title</h2>
+        <p>More text</p>
+    </div>
+</div>
