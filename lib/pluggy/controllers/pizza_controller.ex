@@ -1,4 +1,3 @@
-# <-- Change 1: Update module name
 defmodule Pluggy.PizzaController do
   require IEx
 
@@ -10,11 +9,7 @@ defmodule Pluggy.PizzaController do
   def index(conn) do
     require IEx
     IEx.pry()
-    Map.put(conn.cookies, "cart_id", UUID.uuid4())
     |> send_resp(200, render("pizzas/index", pizzas: Pizza.all()))
-    # <-- Change 3: Update template ("fruits/index" -> "pizzas/index")
-    # <-- Change 4: Update keyword argument (fruits: -> pizzas:)
-    # <-- Removed all user-related functionality
   end
 
   def owner(conn) do
