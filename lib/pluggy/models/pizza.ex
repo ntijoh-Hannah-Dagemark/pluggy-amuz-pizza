@@ -10,6 +10,8 @@ defmodule Pluggy.Pizza do
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM pizza WHERE name = $1 LIMIT 1", [id]).rows
+    |> to_string
+    |> IO.puts()
     |> to_struct
   end
 

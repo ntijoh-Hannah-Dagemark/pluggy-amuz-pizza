@@ -118,4 +118,5 @@ body {
     background-color: red;
     height: 100px; /* Added 'px' unit */
     width: 200px; /* Added 'px' unit */
+    font-size: 50;
 }
