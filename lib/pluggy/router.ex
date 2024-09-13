@@ -5,6 +5,7 @@ defmodule Pluggy.Router do
   alias Pluggy.FruitController
   alias Pluggy.UserController
   alias Pluggy.PizzaController
+  alias Pluggy.CartController
 
   plug(Plug.Static, at: "/", from: :pluggy)
   plug(:put_secret_key_base)
@@ -25,8 +26,13 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
+
+  get("/cart", do: CartController.index(conn))
+  post("/cart/add", do: CartController.add(conn, conn.body_params))
+  post("/cart/remove", do: CartController.remove(conn, conn.body_params))
+  post("/cart/checkout", do: CartController.checkout(conn, conn.body_params))
+
   get("/pizzas", do: PizzaController.index(conn))
-  get("/pizzas/cart", do: PizzaController.cart(conn))
   get("/pizzas/buy/:id", do: PizzaController.buy(conn, id))
   get("/pizzas/customize/:id", do: PizzaController.customize(conn, id))
   get("/pizzas/owner", do: PizzaController.owner(conn))

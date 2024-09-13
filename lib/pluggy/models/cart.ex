@@ -34,6 +34,11 @@ defmodule Pluggy.Cart do
   def delete(id) do
      Postgrex.query!(DB, "DELETE FROM pizza_prog WHERE id = $1", [String.to_integer(id)])
   end
+
+  def delete_all(cart_id) do
+    Postgrex.query!(DB, "DELETE FROM pizza_prog WHERE str_id = $1", [cart_id])
+  end
+
   def to_struct_list(rows) do
     IO.inspect(rows, label: "Rows in to_struct_list")
     for [id, str_id, pizza_id, modifications ] <- rows, do: %Cart{id: id, str_id: str_id, pizza_id: pizza_id, modifications: modifications}

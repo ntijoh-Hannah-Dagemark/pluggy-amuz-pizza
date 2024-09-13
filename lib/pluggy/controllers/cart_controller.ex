@@ -23,8 +23,13 @@ defmodule Pluggy.CartController do
     redirect(conn, "/pizza")
   end
 
-  def remove(conn, id) do
-    Cart.delete(id)
+  def remove(conn, params) do
+    Cart.delete(params["id"])
+    redirect(conn, "/pizza")
+  end
+
+  def checkout(conn, params) do
+    Cart.delete_all(params["cart_id"])
     redirect(conn, "/pizza")
   end
 
