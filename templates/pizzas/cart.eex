@@ -26,7 +26,8 @@
     </div>
 
     <div class="parent">
-        <a href="/fruits", id="cart_checkout"> Checkout </a>
+        <a href="/fruits", id="cart_checkout"><p>Checkout</p></a>
+        
     </div>
 
 
