@@ -12,6 +12,7 @@ defmodule Mix.Tasks.Seed do
   defp drop_tables() do
     IO.puts("Dropping tables")
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_prog", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
@@ -53,21 +54,21 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["margherita", "tomatsås, mozzarella, basilika"],
+      ["Margherita", "tomatsås, mozzarella, basilika"],
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["marinara", "tomatsås"],
+      ["Marinara", "tomatsås"],
       pool: DBConnection.ConnectionPool
     )
 
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
-      ["diavola", "tomatsås, mozzarella, salami, paprika, chili"],
+      ["Diavola", "tomatsås, mozzarella, salami, paprika, chili"],
       pool: DBConnection.ConnectionPool
     )
   end

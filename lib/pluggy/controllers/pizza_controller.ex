@@ -19,7 +19,9 @@ defmodule Pluggy.PizzaController do
   end
 
   def cart(conn) do
-    send_resp(conn, 200, render("pizzas/cart", []))
+    IO.puts("Checking cart before deployment as:")
+    IO.inspect(Pizza.all_cart())
+    send_resp(conn, 200, render("pizzas/cart", cart: Pizza.all_cart()))
   end
 
   # Render the 'new' template

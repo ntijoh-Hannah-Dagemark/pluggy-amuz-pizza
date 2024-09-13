@@ -1,10 +1,16 @@
 defmodule Pluggy.Pizza do
-  defstruct(id: nil, name: "", toppings: "")
+  defstruct(id: nil, name: "", toppings: "", modifications: "")
 
   alias Pluggy.Pizza
 
   def all do
     Postgrex.query!(DB, "SELECT * FROM pizza", []).rows
+    |> to_struct_list
+  end
+
+  def all_cart do
+    Postgrex.query!(DB, "SELECT * FROM pizza_prog WHERE state = $1", ["cart"]).rows
+    |> IO.inspect()
     |> to_struct_list
   end
 
@@ -17,6 +23,8 @@ defmodule Pluggy.Pizza do
 
   def buy(id) do
     current_pizza = get(id)
+
+    IO.inspect(current_pizza, label: "Current Pizza")
 
     Postgrex.query!(
       DB,
@@ -60,6 +68,6 @@ defmodule Pluggy.Pizza do
   end
 
   def to_struct_list(rows) do
-    for [id, name, toppings] <- rows, do: %Pizza{id: id, name: name, toppings: toppings}
+    for [id, name, toppings, modifications] <- rows, do: %Pizza{id: id, name: name, toppings: toppings, modifications: modifications}
   end
 end
