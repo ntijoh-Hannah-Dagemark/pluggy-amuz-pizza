@@ -9,33 +9,51 @@ defmodule Pluggy.Pizza do
   end
 
   def get(id) do
-    Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]
-    ).rows
+    i = id |> String.capitalize()
+
+    Postgrex.query!(DB, "SELECT * FROM pizza WHERE name = $1 LIMIT 1", [i]).rows
     |> to_struct
   end
 
-  def update(id, params) do
-    name = params["name"]
-    toppings = params["toppings"]
-    id = String.to_integer(id)
+  def buy(id) do
+    current_pizza = get(id)
 
     Postgrex.query!(
       DB,
-      "UPDATE pizza SET name = $1, size = $2, toppings = $3 WHERE id = $4",
-      [name, toppings, id]
+      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES ($1, $2, $3, $4)",
+      [
+        current_pizza.name,
+        current_pizza.toppings,
+        "none",
+        "cart"
+      ]
     )
   end
 
-  def create(params) do
-    name = params["name"]
-    toppings = params["toppings"]
+  def buy(id, modifications) do
+    current_pizza = get(id)
 
-    Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2)", [name, toppings])
+    Postgrex.query!(
+      DB,
+      "INSERT INTO pizza_prog (name, toppings, modifications, state) VALUES (?, ?, ?, ?)",
+      [
+        get_in(current_pizza, Access.key(:name)),
+        get_in(current_pizza, Access.key(:toppings)),
+        modifications,
+        "cart"
+      ]
+    )
   end
 
-  def delete(id) do
-    Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
-  end
+  # def create(params) do
+  #   name = params["name"]
+  #   toppings = params["toppings"]
+  #   Postgrex.query!(DB, "INSERT INTO pizza (name, toppings) VALUES ($1, $2)", [name, toppings])
+  # end
+
+  # def delete(id) do
+  #   Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
+  # end
 
   def to_struct([[id, name, toppings]]) do
     %Pizza{id: id, name: name, toppings: toppings}

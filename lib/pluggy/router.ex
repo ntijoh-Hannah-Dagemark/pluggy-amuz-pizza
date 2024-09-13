@@ -2,11 +2,9 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
-
   alias Pluggy.FruitController
   alias Pluggy.UserController
-
-
+  alias Pluggy.PizzaController
 
   plug(Plug.Static, at: "/", from: :pluggy)
   plug(:put_secret_key_base)
@@ -18,7 +16,8 @@ defmodule Pluggy.Router do
     signing_salt: "cookie store signing salt",
     key_length: 64,
     log: :debug,
-    secret_key_base: "-- LONG STRING WITH AT LEAST 64 BYTES -- LONG STRING WITH AT LEAST 64 BYTES --"
+    secret_key_base:
+      "-- LONG STRING WITH AT LEAST 64 BYTES -- LONG STRING WITH AT LEAST 64 BYTES --"
   )
 
   plug(:fetch_session)
@@ -26,18 +25,18 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
-
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/cart", do: PizzaController.cart(conn))
   get("/pizzas/buy/:id", do: PizzaController.buy(conn, id))
   get("/pizzas/customize/:id", do: PizzaController.customize(conn, id))
+  get("/pizzas/owner", do: PizzaController.owner(conn))
 
   post("/pizzas/customize/:id", do: PizzaController.customize(conn, id, conn.body_params))
 
   get("/fruits", do: FruitController.index(conn))
-  #get("/fruits/new", do: FruitController.new(conn))
-  #get("/fruits/:id", do: FruitController.show(conn, id))
-  #get("/fruits/:id/edit", do: FruitController.edit(conn, id))
+  # get("/fruits/new", do: FruitController.new(conn))
+  # get("/fruits/:id", do: FruitController.show(conn, id))
+  # get("/fruits/:id/edit", do: FruitController.edit(conn, id))
 
   post("/fruits", do: FruitController.create(conn, conn.body_params))
 
@@ -47,8 +46,8 @@ defmodule Pluggy.Router do
   # should be delete /fruits/:id, but put/patch/delete are not supported without hidden inputs
   post("/fruits/:id/destroy", do: FruitController.destroy(conn, id))
 
-  post("/users/login", do: UserController.login(conn, conn.body_params))
-  post("/users/logout", do: UserController.logout(conn))
+  # post("/users/login", do: UserController.login(conn, conn.body_params))
+  # post("/users/logout", do: UserController.logout(conn))
 
   match _ do
     send_resp(conn, 404, "oops")
