@@ -13,119 +13,25 @@
 
     <div id="pizzas">
 
-        <div class="pizza_double">
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/margherita.svg" alt="margherita">
+        <%= for {pizza, index} <- Enum.with_index(pizzas) do %>
+            <div class="pizza_holder <%= if rem(index, 2) == 0 do %>first_pizza<% end %>">
+                <img class="pizza_img" src="/img/<%=pizza.name%>.svg" alt="<%=pizza.name%>">
                 <div class="pizza_info">
                     <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Basilika </p>
+                        <p><%=pizza.toppings%></p>
                     </div>
                     <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/margherita">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/margherita">Köp</a>
+                        <form action="/cart/customize">
+                            <param name="pizza_id" value="<%=pizza.id%>" type="hidden">
+                            <button class="customize-btn" type="submit">Anpassa</button>
+                        </form>
+                        <form action="/cart/add" method="POST">
+                            <param name="pizza_id" value="<%=pizza.id%>" type="hidden">
+                            <button class="purchase-btn" type="submit">Köp</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/capricciosa.svg" alt="capricciosa">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp <br>Kronärtskocka </p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/capricciosa">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/capricciosa">Köp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza_double">
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/marinara.svg" alt="marinara">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/marinara">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/marinara">Köp</a>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/quattro-formaggi.svg" alt="quattro-formaggi">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Parmesan <br>Pecorino <br>Gorgonzola</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/quattro-formaggi">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/quattro-formaggi">Köp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza_double">
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/prosciutto-e-funghi.svg" alt="prosciutto-e-funghi">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/prosciutto-e-funghi">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/prosciutto-e-funghi">Köp</a>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/ortolana.svg" alt="ortolana">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Paprika <br>Aubergine <br>Zucchini</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/ortolana">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/ortolana">Köp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pizza_double">
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/quattro-stagioni.svg" alt="quattro-stagioni">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Skinka <br>Svamp <br>Kronärtskocka <br>Oliver</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/quattro-stagioni">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/quattro-stagioni">Köp</a>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="pizza_holder">
-                <img class="pizza_img" src="/img/diavola.svg" alt="diavola">
-                <div class="pizza_info">
-                    <div class="ingredients">
-                        <p>Tomatsås <br>Mozzarella <br>Salami <br>Paprika <br>Chili</p>
-                    </div>
-                    <div class="pizza_actions">
-                        <a class="customize-btn" href="/pizzas/customize/diavola">Anpassa</a>
-                        <a class="purchase-btn" href="/pizzas/buy/diavola">Köp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+        <% end %>
 </body>
 </html>
