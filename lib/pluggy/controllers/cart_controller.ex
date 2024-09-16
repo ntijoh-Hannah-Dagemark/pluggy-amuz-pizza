@@ -23,7 +23,11 @@ defmodule Pluggy.CartController do
 
   def add(conn, params) do
     conn = if not Map.has_key?(conn.cookies, "cart_id"), do: create(conn), else: conn
-    Cart.add(Map.get(conn.cookies, "cart_id"),params["pizza_id"])
+    if params["modifications"] != nil do
+      Cart.add(Map.get(conn.cookies, "cart_id"),params["pizza_id"],params["modifications"])
+    else
+      Cart.add(Map.get(conn.cookies, "cart_id"),params["pizza_id"])
+    end
     redirect(conn, "/pizzas")
   end
 
