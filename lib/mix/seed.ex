@@ -1,6 +1,8 @@
 defmodule Mix.Tasks.Seed do
   use Mix.Task
 
+  # Om du läser detta, är det ett tecken på att du borde nudda lite gräs.
+
   @shortdoc "Resets & seeds the DB."
   def run(_) do
     Mix.Task.run("app.start")
