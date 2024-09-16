@@ -53,72 +53,51 @@ defmodule Mix.Tasks.Seed do
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Margherita", "Tomatsås, Mozzarella, Basilika"],
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Marinara", "Tomatsås"],
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Prosciutto e funghi", "Tomatsås, Mozzarella, Skinka, Svamp"],
       pool: DBConnection.ConnectionPool
     )
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Quattro stagioni", "Tomatsås, Mozzarella, Skinka, Svamp, Kronärtskocka, Oliver"],
       pool: DBConnection.ConnectionPool
     )
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Capricciosa", "Tomatsås, Mozzarella, Skinka, Svamp, Kronärtskocka"],
       pool: DBConnection.ConnectionPool
     )
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Quattro formaggi", "Tomatsås, Mozzarella, Parmesan, Pecorino, Gorgonzola"],
       pool: DBConnection.ConnectionPool
     )
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Ortolana", "Tomatsås, Mozzarella, Paprika, Aubergine, Zucchini"],
       pool: DBConnection.ConnectionPool
     )
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
