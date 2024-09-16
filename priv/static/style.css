@@ -80,7 +80,15 @@ body {
 }
 
 .pizza_actions a {
-    background-color: orange;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.pizza_actions button {
     color: white;
     padding: 5px 10px;
     text-align: center;
