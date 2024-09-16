@@ -7,9 +7,8 @@ defmodule Pluggy.PizzaController do
   import Plug.Conn, only: [send_resp: 3]
 
   def index(conn) do
-    require IEx
-    IEx.pry()
-    |> send_resp(200, render("pizzas/index", pizzas: Pizza.all()))
+    IO.inspect(Pizza.all(), label: "Return of Pizza.all()")
+    send_resp(conn, 200, render("pizzas/index", pizzas: Pizza.all()))
   end
 
   def owner(conn) do
