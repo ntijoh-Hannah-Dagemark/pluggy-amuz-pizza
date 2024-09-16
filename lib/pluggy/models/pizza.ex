@@ -8,8 +8,11 @@ defmodule Pluggy.Pizza do
     |> to_struct_list
   end
 
-  def all_ingredients do
-    Postgrex.query!(DB, "SELECT toppings FROM pizza", [])
+  def all_toppings do
+    Postgrex.query!(DB, "SELECT toppings FROM pizza", []).rows
+    |> Enum.map(fn [toppings] -> String.split(toppings, ", ") end)
+    |> List.flatten()
+    |> Enum.uniq()
   end
 
   def get(id) do

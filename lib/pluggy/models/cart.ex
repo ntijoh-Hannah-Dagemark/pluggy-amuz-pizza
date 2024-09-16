@@ -8,14 +8,16 @@ defmodule Pluggy.Cart do
     |> to_struct_list
   end
 
-  def add(cart_id, pizza_id) do
+  def add(cart_id, pizza_id, modifications \\ "none") do
+    mod = if modifications != "none", do: modifications |> Enum.map(&String.trim/1) |> Enum.join(", "), else: modifications
     if cart_id != nil and pizza_id != nil do
       Postgrex.query!(
         DB,
-        "INSERT INTO pizza_prog (str_id, pizza_id, modifications) VALUES ($1, $2, 'none')",
+        "INSERT INTO pizza_prog (str_id, pizza_id, modifications) VALUES ($1, $2, $3)",
         [
           cart_id,
-          pizza_id
+          pizza_id,
+          mod
         ]
       )
       IO.puts("Inserted pizza #{pizza_id} into cart #{cart_id}.\n")
@@ -25,18 +27,6 @@ defmodule Pluggy.Cart do
       IO.inspect(cart_id, label: "Cart ID")
       IO.inspect(pizza_id, label: "Pizza ID")
     end
-  end
-
-  def add(cart_id, pizza_id, modifications) do
-    Postgrex.query!(
-        DB,
-        "INSERT INTO pizza_prog (str_id, pizza_id, modifications) VALUES ($1, $2, $3)",
-        [
-          cart_id,
-          pizza_id,
-          modifications
-        ]
-      )
   end
 
   def delete(id) do

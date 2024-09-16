@@ -2,20 +2,18 @@
     <h1>Beställ variant av <%= pizza.name %></h1>
 
     <form action="/cart/add" method="post">
-        <input type="hidden" name="pizza_name" value="<%= pizza.name %>">
+        <input type="hidden" name="pizza_id" value="<%= pizza.id %>">
 
         <h2>Toppings</h2>
-        <%total_toppings = "Tomatsås, Mozzarella, Basilika, Skinka, Svamp, Kronärtskocka, Oliver, Parmesan, Pecorino, Gorgonzola, Paprika, Aubergine, Zucchini, Salami, Chili"%>
         <%split_toppings = String.split(pizza.toppings, ",")%>
         <ul>
-            <%= for topping <- String.split(total_toppings, ",") do %>
+            <%= for topping <- toppings do %>
                 <li>
                     <label>
                         <input type="checkbox" 
-                               name="toppings[]" 
-                               value="<%= topping %>"
-                               <%= if topping in split_toppings, do: "checked" %>>
-                        <%= topping %>
+                               name="modifications[]" 
+                               value="<%= if topping in split_toppings, do: "- " <> topping, else: "+ " <> topping %>">
+                            <%= if topping in split_toppings, do: "- " <> topping, else: "+ " <> topping %>
                     </label>
                 </li>
             <% end %>
