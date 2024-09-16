@@ -32,6 +32,7 @@ defmodule Pluggy.Router do
   post("/cart/remove", do: CartController.remove(conn, conn.body_params))
   post("/cart/checkout", do: CartController.checkout(conn, conn.body_params))
 
+  get("/pizzas/customize/:id", do: PizzaController.customize(conn, id))
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/owner", do: PizzaController.owner(conn))
 

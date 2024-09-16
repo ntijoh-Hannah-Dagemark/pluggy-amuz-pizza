@@ -48,9 +48,7 @@ defmodule Pluggy.PizzaController do
   end
 
   def customize(conn, id) do
-  end
-
-  def customize(conn, id, body_params) do
+    send_resp(conn, 200, render("pizzas/customize", pizza: Pizza.get(id)))
   end
 
   def update(conn, id, params) do
