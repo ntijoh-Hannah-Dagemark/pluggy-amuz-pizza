@@ -8,6 +8,10 @@ defmodule Pluggy.Pizza do
     |> to_struct_list
   end
 
+  def all_ingredients do
+    Postgrex.query!(DB, "SELECT toppings FROM pizza", [])
+  end
+
   def get(id) do
     i = id |> String.capitalize()
 
