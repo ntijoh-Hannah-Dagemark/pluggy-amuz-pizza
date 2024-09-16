@@ -93,6 +93,7 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
+    # Om du läser detta, är det ett tecken på att du borde nudda lite gräs.
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Ortolana", "Tomatsås, Mozzarella, Paprika, Aubergine, Zucchini"],
       pool: DBConnection.ConnectionPool
