@@ -15,9 +15,9 @@
     <div class="parent">
         <h1>Cart items</h1>
         <div id="cart">
-            <%= for pizza <- cart do %>
+            <%= for cart_item <- cart do %>
                 <div class="pizza-item">
-                    <h2><%= pizza.name %></h2>
+                    <h2><%= pizzas[cart_item.pizza_id].name %></h2>
                     <p><strong>Toppings:</strong> <%= pizza.toppings %></p>
                     <p><strong>Modifications:</strong> <%= pizza.modifications %></p>
                 </div>
@@ -27,7 +27,7 @@
 
     <div class="parent">
         <a href="/fruits", id="cart_checkout"><p>Checkout</p></a>
-        
+
     </div>
 
 
