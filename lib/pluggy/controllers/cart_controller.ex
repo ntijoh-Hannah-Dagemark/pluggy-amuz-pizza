@@ -3,6 +3,7 @@ defmodule Pluggy.CartController do
 
   # <-- Change 2: Update alias to Pizza
   alias Pluggy.Cart
+  alias Pluggy.Pizza
   import Pluggy.Template, only: [render: 2]
   import Plug.Conn, only: [send_resp: 3, put_resp_cookie: 3]
 
@@ -10,7 +11,7 @@ defmodule Pluggy.CartController do
     #require IEx
     #IEx.pry()
     #|>
-    send_resp(conn, 200, render("cart/index", cart: Cart.get_all_in(Map.get(conn.cookies, "cart_id"))))
+    send_resp(conn, 200, render("cart/index", cart: Cart.get_all_in(Map.get(conn.cookies, "cart_id")), pizzas: Pizza.all()))
   end
 
   def create(conn) do
