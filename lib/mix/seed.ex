@@ -36,11 +36,9 @@ defmodule Mix.Tasks.Seed do
       """
         CREATE TABLE pizza_prog (
           id SERIAL PRIMARY KEY,
-          name VARCHAR(255) NOT NULL,
-          toppings VARCHAR(255) NOT NULL,
-          modifications VARCHAR(255) NOT NULL,
-          state VARCHAR(255) NOT NULL
-
+          str_id VARCHAR(255) NOT NULL,
+          pizza_id VARCHAR(255) NOT NULL,
+          modifications VARCHAR(255) NOT NULL
         )
       """,
       [],

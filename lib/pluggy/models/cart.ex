@@ -9,14 +9,22 @@ defmodule Pluggy.Cart do
   end
 
   def add(cart_id, pizza_id) do
-    Postgrex.query!(
-      DB,
-      "INSERT INTO pizza_prog (str_id, pizza_id, modifications) VALUES ($1, $2, 'none')",
-      [
-        cart_id,
-        pizza_id
-      ]
-    )
+    if cart_id != nil and pizza_id != nil do
+      Postgrex.query!(
+        DB,
+        "INSERT INTO pizza_prog (str_id, pizza_id, modifications) VALUES ($1, $2, 'none')",
+        [
+          cart_id,
+          pizza_id
+        ]
+      )
+      IO.puts("Inserted pizza #{pizza_id} into cart #{cart_id}.\n")
+      IO.inspect(get_all_in(cart_id), label: "For this cart, there are now pizzas:")
+    else
+      IO.puts("Failed to add pizza, values:")
+      IO.inspect(cart_id, label: "Cart ID")
+      IO.inspect(pizza_id, label: "Pizza ID")
+    end
   end
 
   def add(cart_id, pizza_id, modifications) do
