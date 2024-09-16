@@ -8,7 +8,7 @@
     <div id="title_screen">
         <div id="empty"></div>
         <img id="logo_img" src="/img/tonys-pizza-logo.svg" alt="Pizzaman Title">
-        <a href="/pizzas/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
+        <a href="/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
     </div>
 
     <div id="pizzas">
@@ -22,11 +22,12 @@
                     </div>
                     <div class="pizza_actions">
                         <form action="/cart/customize">
-                            <param name="pizza_id" value="<%=pizza.id%>" type="hidden">
+                            <input name="pizza_id" value="<%=pizza.id%>" type="hidden">
                             <button class="customize-btn" type="submit">Anpassa</button>
                         </form>
+                        <p>ID is meant to be <%=pizza.id%></p>
                         <form action="/cart/add" method="POST">
-                            <param name="pizza_id" value="<%=pizza.id%>" type="hidden">
+                            <input name="pizza_id" value="<%=pizza.id%>" type="hidden">
                             <button class="purchase-btn" type="submit">Köp</button>
                         </form>
                     </div>

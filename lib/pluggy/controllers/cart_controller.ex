@@ -4,7 +4,7 @@ defmodule Pluggy.CartController do
   # <-- Change 2: Update alias to Pizza
   alias Pluggy.Cart
   import Pluggy.Template, only: [render: 2]
-  import Plug.Conn, only: [send_resp: 3]
+  import Plug.Conn, only: [send_resp: 3, put_resp_cookie: 3]
 
   def index(conn) do
     #require IEx
@@ -14,23 +14,26 @@ defmodule Pluggy.CartController do
   end
 
   def create(conn) do
-    Map.put(conn.cookies, "cart_id", UUID.uuid4())
+    cart_id = UUID.uuid4()
+    conn = put_resp_cookie(conn, "cart_id", cart_id)
+    IO.inspect(cart_id, label: "Cart ID set at")
+    conn
   end
 
   def add(conn, params) do
-    if not Map.has_key?(conn.cookies, "cart_id"), do: create(conn)
+    conn = if not Map.has_key?(conn.cookies, "cart_id"), do: create(conn), else: conn
     Cart.add(Map.get(conn.cookies, "cart_id"),params["pizza_id"])
-    redirect(conn, "/pizza")
+    redirect(conn, "/pizzas")
   end
 
   def remove(conn, params) do
     Cart.delete(params["id"])
-    redirect(conn, "/pizza")
+    redirect(conn, "/pizzas")
   end
 
   def checkout(conn, params) do
     Cart.delete_all(params["cart_id"])
-    redirect(conn, "/pizza")
+    redirect(conn, "/pizzas")
   end
 
   defp redirect(conn, url) do
