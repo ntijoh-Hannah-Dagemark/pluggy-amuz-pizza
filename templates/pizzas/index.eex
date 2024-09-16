@@ -21,11 +21,7 @@
                         <p><%=pizza.toppings%></p>
                     </div>
                     <div class="pizza_actions">
-                        <form action="/cart/customize">
-                            <input name="pizza_id" value="<%=pizza.id%>" type="hidden">
-                            <button class="customize-btn" type="submit">Anpassa</button>
-                        </form>
-                        <p>ID is meant to be <%=pizza.id%></p>
+                        <a href="/pizzas/customize/<%=pizza.name%>" class="customize-btn" >Anpassa</a>
                         <form action="/cart/add" method="POST">
                             <input name="pizza_id" value="<%=pizza.id%>" type="hidden">
                             <button class="purchase-btn" type="submit">Köp</button>

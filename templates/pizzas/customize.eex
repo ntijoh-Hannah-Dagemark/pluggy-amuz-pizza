@@ -1,19 +1,20 @@
 <body>
-    <h1>Beställ variant av <%= @pizza.name %></h1>
+    <h1>Beställ variant av <%= pizza.name %></h1>
 
-    <form action="/pizzas/customize/<%=@pizza.name%>" method="post">
-        <input type="hidden" name="_csrf_token" value="<%= @csrf_token %>">
-        <input type="hidden" name="pizza_name" value="<%= @pizza.name %>">
+    <form action="/cart/add" method="post">
+        <input type="hidden" name="pizza_name" value="<%= pizza.name %>">
 
         <h2>Toppings</h2>
+        <%total_toppings = "Tomatsås, Mozzarella, Basilika, Skinka, Svamp, Kronärtskocka, Oliver, Parmesan, Pecorino, Gorgonzola, Paprika, Aubergine, Zucchini, Salami, Chili"%>
+        <%split_toppings = String.split(pizza.toppings, ",")%>
         <ul>
-            <%= for topping <- @all_toppings do %>
+            <%= for topping <- String.split(total_toppings, ",") do %>
                 <li>
                     <label>
                         <input type="checkbox" 
                                name="toppings[]" 
                                value="<%= topping %>"
-                               <%= if topping in @pizza.toppings, do: "checked" %>>
+                               <%= if topping in split_toppings, do: "checked" %>>
                         <%= topping %>
                     </label>
                 </li>
@@ -24,14 +25,3 @@
     </form>
 </body>
 </html>
-
-
-<div>
-    <h1>Hello!</h1>
-    <p>This is some text</p>
-    <img src="/img/something" alt="oops, image failed to load">
-    <div>
-        <h2>Smaller title</h2>
-        <p>More text</p>
-    </div>
-</div>
