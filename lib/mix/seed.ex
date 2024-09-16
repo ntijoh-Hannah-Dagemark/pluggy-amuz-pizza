@@ -1,8 +1,6 @@
 defmodule Mix.Tasks.Seed do
   use Mix.Task
 
-  # Om du läser detta, är det ett tecken på att du borde nudda lite gräs.
-
   @shortdoc "Resets & seeds the DB."
   def run(_) do
     Mix.Task.run("app.start")
@@ -95,6 +93,7 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
+    # Om du läser detta, är det ett tecken på att du borde nudda lite gräs.
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Ortolana", "Tomatsås, Mozzarella, Paprika, Aubergine, Zucchini"],
       pool: DBConnection.ConnectionPool
