@@ -1,4 +1,3 @@
-# <-- Change 1: Update module name
 defmodule Pluggy.PizzaController do
   require IEx
 
@@ -8,10 +7,9 @@ defmodule Pluggy.PizzaController do
   import Plug.Conn, only: [send_resp: 3]
 
   def index(conn) do
-    send_resp(conn, 200, render("pizzas/index", pizzas: Pizza.all()))
-    # <-- Change 3: Update template ("fruits/index" -> "pizzas/index")
-    # <-- Change 4: Update keyword argument (fruits: -> pizzas:)
-    # <-- Removed all user-related functionality
+    require IEx
+    IEx.pry()
+    |> send_resp(200, render("pizzas/index", pizzas: Pizza.all()))
   end
 
   def owner(conn) do
@@ -19,8 +17,9 @@ defmodule Pluggy.PizzaController do
   end
 
   def cart(conn) do
-    IO.puts("Checking cart before deployment as:")
-    IO.inspect(Pizza.all_cart())
+    Pizza.all_cart()
+    |> IO.inspect()
+    IO.puts("Checked cart before deployment as^")
     send_resp(conn, 200, render("pizzas/cart", cart: Pizza.all_cart()))
   end
 

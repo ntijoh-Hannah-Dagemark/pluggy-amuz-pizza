@@ -68,6 +68,7 @@ defmodule Pluggy.Pizza do
   end
 
   def to_struct_list(rows) do
-    for [id, name, toppings, modifications] <- rows, do: %Pizza{id: id, name: name, toppings: toppings, modifications: modifications}
+    IO.inspect(rows, label: "Rows in to_struct_list")
+    for [id, name, toppings, modifications | _state ] <- rows, do: %Pizza{id: id, name: name, toppings: toppings, modifications: modifications}
   end
 end
