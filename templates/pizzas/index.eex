@@ -15,7 +15,7 @@
 
         <%= for {pizza, index} <- Enum.with_index(pizzas) do %>
             <div class="pizza_holder <%= if rem(index, 2) == 0 do %>first_pizza<% end %>">
-                <img class="pizza_img" src="/img/<%=pizza.name%>.svg" alt="<%=pizza.name%>">
+                <img class="pizza_img" src="/img/<%= String.replace(pizza.name, " ", "-") %>.svg" alt="<%= String.replace(pizza.name, " ", "-") %>">
                 <div class="pizza_info">
                     <div class="ingredients">
                         <p><%=pizza.toppings%></p>
