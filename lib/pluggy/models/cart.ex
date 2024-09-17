@@ -34,6 +34,10 @@ defmodule Pluggy.Cart do
   end
 
   def delete_all(cart_id) do
+    orders = get_all_in(cart_id)
+    for order <- orders do
+      Postgrex.query!(DB, "INSERT INTO orders (pizza_id, modifications) VALUES ($1, $2)", [order.pizza_id, order.modifications])
+    end
     Postgrex.query!(DB, "DELETE FROM pizza_prog WHERE str_id = $1", [cart_id])
   end
 

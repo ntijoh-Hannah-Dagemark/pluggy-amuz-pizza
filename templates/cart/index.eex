@@ -33,8 +33,9 @@
     </div>
 
     <div class="parent">
-        <a href="/pizzas", class="cart_checkout"><p>Checkout</p></a>
-
+        <form action="/cart/checkout" method="post">
+            <button class="cart_checkout" type="submit">Checkout</button>
+        </form>
     </div>
 
 

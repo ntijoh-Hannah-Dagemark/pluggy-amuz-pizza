@@ -13,6 +13,8 @@ defmodule Mix.Tasks.Seed do
     IO.puts("Dropping tables")
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_prog", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS logon", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
@@ -39,6 +41,31 @@ defmodule Mix.Tasks.Seed do
           str_id VARCHAR(255) NOT NULL,
           pizza_id VARCHAR(255) NOT NULL,
           modifications VARCHAR(255) NOT NULL
+        )
+      """,
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(
+      DB,
+      """
+        CREATE TABLE orders (
+          id SERIAL PRIMARY KEY,
+          pizza_id VARCHAR(255) NOT NULL,
+          modifications VARCHAR(255) NOT NULL
+        )
+      """,
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(
+      DB,
+      """
+        CREATE TABLE logon (
+          id SERIAL PRIMARY KEY,
+          password_hash CHAR(60) NOT NULL
         )
       """,
       [],

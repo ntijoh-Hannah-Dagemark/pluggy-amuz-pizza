@@ -4,6 +4,7 @@ defmodule Pluggy.Router do
 
   alias Pluggy.FruitController
   alias Pluggy.UserController
+  alias Pluggy.OrderController
   alias Pluggy.PizzaController
   alias Pluggy.CartController
 
@@ -26,21 +27,25 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
+  get("/", do: PizzaController.index(conn))
 
   get("/cart", do: CartController.index(conn))
   post("/cart/add", do: CartController.add(conn, conn.body_params))
   post("/cart/remove", do: CartController.remove(conn, conn.body_params))
   post("/cart/checkout", do: CartController.checkout(conn, conn.body_params))
 
-  get("/pizzas/customize/:id", do: PizzaController.customize(conn, id))
   get("/pizzas", do: PizzaController.index(conn))
-  get("/pizzas/owner", do: PizzaController.owner(conn))
+  get("/pizzas/customize/:id", do: PizzaController.customize(conn, id))
+
+  get("/orders", do: OrderController.index(conn))
+  post("/orders/logon", do: OrderController.logon(conn, conn.body_params))
+  post("/orders/pass_cr_frm", do: OrderController.create(conn, conn.body_params))
 
   # post("/users/login", do: UserController.login(conn, conn.body_params))
   # post("/users/logout", do: UserController.logout(conn))
 
   match _ do
-    send_resp(conn, 404, "oops")
+    send_resp(conn, 404, "No side found")
   end
 
   defp put_secret_key_base(conn, _) do

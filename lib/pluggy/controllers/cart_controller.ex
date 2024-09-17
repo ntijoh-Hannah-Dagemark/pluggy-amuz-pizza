@@ -37,7 +37,7 @@ defmodule Pluggy.CartController do
   end
 
   def checkout(conn, params) do
-    Cart.delete_all(params["cart_id"])
+    Cart.delete_all(Map.get(conn.cookies, "cart_id"))
     redirect(conn, "/pizzas")
   end
 

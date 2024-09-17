@@ -13,6 +13,12 @@ config :pluggy,
     password: "docker"
   ]
 
+config :plug, :session,
+  key: "_pluggy_key",
+  signing_salt: "U5rP0vS9c3A1mZ4u6HcN2i5K8V6F9gH7zB5G7fH8A6W9P2R1Q",
+  encryption_salt: "4FhT8Vc9G7U3O6p2F6k5J7F2E9xB8Q1z6w8R0L4T7V1D2X9K",
+  encrypt: true
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
