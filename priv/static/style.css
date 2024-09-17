@@ -117,8 +117,13 @@ body {
 }
 
 #cart {
-    height: 400px;
+    height: 600px;
     width: 400px;
+    max-height: 425px; /* Set the maximum height */
+    overflow-y: auto;  /* Allow scrolling on the y-axis */
+    border: 2px solid black;
+    border-radius: 15px;
+    padding-left: 10px;
 }
 
 .cart_checkout {
@@ -130,6 +135,7 @@ body {
     text-align: center;
     color: white;
     border-radius: 15px;
+    margin-top: 10px;
 }
 
 .cart_checkout:hover {
@@ -154,3 +160,4 @@ body {
 .purchase-btn:hover {
     background-color: #009966;
 }
+
