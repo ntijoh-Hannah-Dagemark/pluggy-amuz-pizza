@@ -13,11 +13,9 @@
 
 
     <div class="parent">
-        
         <div id="cart">
-            <u><h1>Cart items</h1></u>
             <%= for cart_item <- cart do %>
-                <div class="pizza-item">
+                <div class="pizza_item">
                     <%= for pizza <- pizzas do %>
                         <%= if Integer.to_string(pizza.id) == cart_item.pizza_id do %>
                             <h3><%=pizza.name%></h3>
