@@ -55,42 +55,50 @@ defmodule Mix.Tasks.Seed do
       ["Margherita", "Tomatsås, Mozzarella, Basilika"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Marinara", "Tomatsås"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Prosciutto e funghi", "Tomatsås, Mozzarella, Skinka, Svamp"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Quattro stagioni", "Tomatsås, Mozzarella, Skinka, Svamp, Kronärtskocka, Oliver"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Capricciosa", "Tomatsås, Mozzarella, Skinka, Svamp, Kronärtskocka"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Quattro formaggi", "Tomatsås, Mozzarella, Parmesan, Pecorino, Gorgonzola"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
+    # Om du läser detta, är det ett tecken på att du borde nudda lite gräs.
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",
       ["Ortolana", "Tomatsås, Mozzarella, Paprika, Aubergine, Zucchini"],
       pool: DBConnection.ConnectionPool
     )
+
     Postgrex.query!(
       DB,
       "INSERT INTO pizza(name, toppings) VALUES($1, $2)",

@@ -8,25 +8,35 @@
     <div id="title_screen">
         <div id="empty"></div>
         <img id="logo_img" src="/img/tonys-pizza-logo.svg" alt="Pizzaman Title">
-        <a href="/pizzas/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
+        <a href="/cart"><img id="basket_img" src="/img/tonys-pizza-basket.svg" alt="Pizzaman Basket"></a>
     </div>
 
 
     <div class="parent">
-        <h1>Cart items</h1>
+        
         <div id="cart">
-            <%= for pizza <- cart do %>
+            <u><h1>Cart items</h1></u>
+            <%= for cart_item <- cart do %>
                 <div class="pizza-item">
-                    <h2><%= pizza.name %></h2>
-                    <p><strong>Toppings:</strong> <%= pizza.toppings %></p>
-                    <p><strong>Modifications:</strong> <%= pizza.modifications %></p>
+                    <%= for pizza <- pizzas do %>
+                        <%= if Integer.to_string(pizza.id) == cart_item.pizza_id do %>
+                            <h3><%=pizza.name%></h3>
+                            <p><strong><%= pizza.toppings %></strong></p>
+                            <%= if cart_item.modifications == "none" do %>
+                              <p></p>
+                            <% else %>
+                              <p><strong><%= cart_item.modifications %></strong></p>
+                            <% end %>
+                        <% end %>
+                    <% end %>
                 </div>
             <% end %>
         </div>
     </div>
 
     <div class="parent">
-        <a href="/fruits", id="cart_checkout"> Checkout </a>
+        <a href="/pizzas", class="cart_checkout"><p>Checkout</p></a>
+
     </div>
 
 
