@@ -121,12 +121,21 @@ body {
     width: 400px;
 }
 
-#cart_checkout {
-    background-color: red;
-    height: 100px;
-    width: 200px;
+.cart_checkout {
+    background-color: black;
+    height: 50px;
+    width: 150px;
     font-size: 50;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    border-radius: 15px;
 }
+
+.cart_checkout:hover {
+    background-color: green;
+}
+
 
 .customize-btn {
     background-color: #ffcc00;
